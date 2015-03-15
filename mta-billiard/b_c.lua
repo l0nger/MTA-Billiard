@@ -33,7 +33,7 @@ function billard_render()
 		removeEventHandler("onClientRender", root, billard_render)
 		return
 	end
-	if getControlState("aim_weapon") then
+	if getKeyState("mouse2") then
 
 --		local x,y=getElementPosition(localPlayer)
 		local x,y=getPedWeaponMuzzlePosition(localPlayer)
@@ -54,7 +54,7 @@ function billard_render()
 			animStateLU=getTickCount()
 		elseif animState==1 then
 			setPedRotation(localPlayer, findRotation(x,y,x2,y2))
-			if getControlState("fire") then
+			if getKeyState("mouse1") then
 				animState=2
 				animStateLU=getTickCount()
 				triggerServerEvent("setPedAnimation", localPlayer,"POOL", "POOL_Med_Shot", -1, false, false)
