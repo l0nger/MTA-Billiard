@@ -130,7 +130,7 @@ addEventHandler("onColShapeHit", resourceRoot, function(el,md)
 
 	triggerClientEvent(el, "onNearTable", resourceRoot, tables[idx][1], tables[idx][2], tables[idx][3], W, H)
 	giveWeapon(el, 7, 1, true)
-	toggleControl(source, "fire", false) -- don't let the player interfere with the game
+	toggleControl(el, "fire", false) -- don't let the player interfere with the game
 end)
 
 addEventHandler("onColShapeLeave", resourceRoot, function(el,md)
@@ -138,7 +138,7 @@ addEventHandler("onColShapeLeave", resourceRoot, function(el,md)
 	if (getElementType(el)~="player") then return end
 	triggerClientEvent(el, "onNearTable", resourceRoot, nil)
 	takeWeapon(el,7)
-	toggleControl(source, "fire", true)
+	toggleControl(el, "fire", true)
 end)
 
 local function findTableNumber(plr)
